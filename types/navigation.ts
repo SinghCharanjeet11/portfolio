@@ -4,11 +4,7 @@
  * Types for the responsive navigation component with accessibility features.
  */
 
-export interface NavigationItem {
-  label: string;
-  href: string;
-  isExternal?: boolean;
-}
+import { NavigationItem } from './config';
 
 export interface NavigationProps {
   currentSection: string;
