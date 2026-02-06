@@ -7,46 +7,59 @@ export interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ profile }) => {
+  const MotionDiv = motion.div as any;
+  const MotionH1 = motion.h1 as any;
+  const MotionH2 = motion.h2 as any;
+  const MotionP = motion.p as any;
+
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white px-4">
-      <div className="max-w-4xl mx-auto text-center">
-        <motion.img
+      <MotionDiv 
+        className="max-w-4xl mx-auto text-center"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <MotionDiv
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ duration: 0.5 }}
-          src={profile.profileImage.src}
-          alt={profile.profileImage.alt}
-          className="w-40 h-40 rounded-full mx-auto mb-8 border-4 border-white/30 object-cover"
-        />
+        >
+          <img
+            src={profile.profileImage.src}
+            alt={profile.profileImage.alt}
+            className="w-40 h-40 rounded-full mx-auto mb-8 border-4 border-white/30 object-cover"
+          />
+        </MotionDiv>
         
-        <motion.h1
+        <MotionH1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
           className="text-5xl md:text-7xl font-bold mb-4"
         >
           {profile.name}
-        </motion.h1>
+        </MotionH1>
         
-        <motion.h2
+        <MotionH2
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
           className="text-2xl md:text-3xl mb-6 text-blue-200"
         >
           {profile.title}
-        </motion.h2>
+        </MotionH2>
         
-        <motion.p
+        <MotionP
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
           className="text-xl mb-8 text-gray-300"
         >
           {profile.tagline}
-        </motion.p>
+        </MotionP>
         
-        <motion.div
+        <MotionDiv
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
@@ -64,8 +77,8 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
           >
             View Work
           </a>
-        </motion.div>
-      </div>
+        </MotionDiv>
+      </MotionDiv>
     </section>
   );
 };
